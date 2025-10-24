@@ -4,13 +4,15 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 function MyRegistration() {
+  
   const [register, setRegister] = useState([])
   async function getAllData() {
+    const BACKEND_API="https://swim-6.onrender.com"
     let userID = localStorage.getItem("userID")
 
     if (userID) {
       try {
-        const res = await axios.get(`http://localhost:4001/api/ViewRegister/v1/${userID}`);
+        const res = await axios.get(`${BACKEND_END}/api/ViewRegister/v1/${userID}`);
         setRegister(res.data.allRegister)
       } catch (error) {
         console.log(error)
@@ -29,7 +31,7 @@ function MyRegistration() {
     const _id = e.target.id
     console.log(_id)
     try {
-      const res = await axios.delete(`http://localhost:4001/api/deleteMyRegistration/${_id}`)
+      const res = await axios.delete(`${BACKEND_END}/api/deleteMyRegistration/${_id}`)
       alert(res.data.msg)
       getAllData()
     } catch (error) {

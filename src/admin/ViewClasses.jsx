@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 function ViewClasses() {
+          const BACKEND_API = "https://swim-6.onrender.com"
+
     const [allclasses, setAllClasses] = useState([])
 
     async function getClasses() {
         try {
-            let res = await fetch("http://localhost:4001/api/getClasses");
+            let res = await fetch(`${BACKEND_API}/api/getClasses`);
             let data = await res.json();
             setAllClasses(data.allClasses);
         } catch (error) {
@@ -25,7 +27,7 @@ function ViewClasses() {
         if(ans){
 
         try {
-            const res = await axios.delete(`http://localhost:4001/api/deleteClasses/${_id}`)
+            const res = await axios.delete(`${BACKEND_API}/api/deleteClasses/${_id}`)
             alert(res.data.msg)
             getClasses()
         } catch (error) {

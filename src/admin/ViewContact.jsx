@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
 function viewContact() {
+  const BACKEND_API = "https://swim-6.onrender.com"
   const [allContact, setAllContact] = useState([])
   async function getAllData() {
     try {
-      const res = await axios.get("http://localhost:4001/api/Viewcontact");
+      const res = await axios.get(`${BACKEND_API}/api/Viewcontact`);
       setAllContact(res.data.allContact)
 
 
@@ -26,7 +27,7 @@ function viewContact() {
     const ans=confirm("Data Delete?")
     if(ans){
        try {
-        const res =  await axios.delete(`http://localhost:4001/api/deleteContact/${_id}`)
+        const res =  await axios.delete(`${BACKEND_API}/api/deleteContact/${_id}`)
         alert(res.data.msg)
         getAllData()
       } catch (error) {

@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 
 function AddCategory() {
+  const BACKEND_API = "https://swim-6.onrender.com"
   const [category, setCategory] = useState("")
   function saveCategory() {
-    fetch("http://localhost:4001/api/addCategory", {
+    fetch(`${BACKEND_API}/api/addCategory`, {
       method: "post",
       body: JSON.stringify({ category }),
       headers: {

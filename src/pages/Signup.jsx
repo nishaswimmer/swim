@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 
 function Signup() {
+    const BACKEND_API="https://swim-6.onrender.com"
     let [name, setName] = useState("")
     let [email, setEmail] = useState("")
     let [password, setPassword] = useState("")
 
     function submit() {
         let data = { name, email, password }
-        fetch("http://localhost:4001/api/sign", {
+        fetch(`${BACKEND_API}/api/sign`, {
             body: JSON.stringify(data),
             method: "post",
             headers: {

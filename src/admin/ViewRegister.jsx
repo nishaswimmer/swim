@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react'
 
 import axios from 'axios';
 function ViewRegister() {
+  const BACKEND_API = "https://swim-6.onrender.com"
   const [register, setRegister] = useState([])
   async function getAllData() {
     try {
-      const res = await axios.get("http://localhost:4001/api/ViewRegister");
+      const res = await axios.get(`${BACKEND_API}/api/ViewRegister`);
       setRegister(res.data.allRegister)
 
     } catch (error) {
@@ -25,7 +26,7 @@ function ViewRegister() {
 const _id = e.target.id
     console.log(_id)
     try {
-      const res = await axios.delete(`http://localhost:4001/api/deleteRegister/${_id}`)
+      const res = await axios.delete(`${BACKEND_API}/api/deleteRegister/${_id}`)
       alert(res.data.msg)
       getAllData()
     } catch (error) {

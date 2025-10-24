@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
 
 function ViewCategory() {
+        const BACKEND_API = "https://swim-6.onrender.com"
+
   const [allCategory, setAllCategory] = useState([])
 
   async function getCategory() {
     try {
-      let res = await fetch("http://localhost:4001/api/getCategory");
+      let res = await fetch(`${BACKEND_API}/api/getCategory`);
       let data = await res.json();
       setAllCategory(data.allCategory);
     } catch (error) {
@@ -23,7 +25,7 @@ if (ans){
   
     try {
 
-      let res = await fetch(`http://localhost:4001/api/deleteCategory/${id}`);
+      let res = await fetch(`${BACKEND_API}/api/deleteCategory/${id}`);
       let data = await res.json();
       if (res.ok) {
         getCategory()

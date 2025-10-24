@@ -2,6 +2,8 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 function UpdateClass() {
+      const BACKEND_API = "https://swim-6.onrender.com"
+
     const id =  useParams().idx
 
     const [img, setImg] = useState("");
@@ -14,7 +16,7 @@ function UpdateClass() {
 
     async function getdatabyID() {
         try {
-            let res = await fetch(`http://localhost:4001/api/getdatabyID/${id}`);
+            let res = await fetch(`${BACKEND_API}/api/getdatabyID/${id}`);
             let data = await res.json();
             console.log(data)
             setageGroup(data.agegroup)
@@ -59,7 +61,7 @@ function UpdateClass() {
          data = { classtype, agegroup, time, description, totalclass ,img}   
         }
 
-        fetch(`http://localhost:4001/api/updateclass/${id}`, {
+        fetch(`${BACKEND_API}/api/updateclass/${id}`, {
             body: JSON.stringify(data),
             method: "put",
             headers: {

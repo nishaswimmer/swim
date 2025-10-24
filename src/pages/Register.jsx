@@ -19,6 +19,7 @@ function Register() {
     let [course, setCourse] = useState("")
 
     let {userName , userEmail , setUserName} =  useContext(authContext)
+    const BACKEND_API="https://swim-6.onrender.com"
 
     function submit(e) {
         e.preventDefault()
@@ -28,7 +29,7 @@ function Register() {
         const userID = localStorage.getItem("userID")
         let data = { userName, lastname, userEmail, town, zipcode, date, course, phone: Number(phone), userID }
         console.log(data)
-        fetch("http://localhost:4001/api/register", {
+        fetch(`${BACKEND_API}/api/register`, {
             body: JSON.stringify(data),
             method: "post",
             headers: {
@@ -45,7 +46,7 @@ function Register() {
 
     async function getCategory() {
         try {
-            let res = await fetch("http://localhost:4001/api/getCategory");
+            let res = await fetch(`${BACKEND_API}/api/getCategory`);
             let data = await res.json();
             setAllCategory(data.allCategory);
         } catch (error) {
