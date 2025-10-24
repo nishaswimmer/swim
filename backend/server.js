@@ -280,7 +280,8 @@ app.get("/getUserInfo/:id", async (req, res) => {
    }
 })
 
-mongoose.connect("mongodb://localhost:27017/swim")
+// mongoose.connect("mongodb://localhost:27017/swim")
+mongoose.connect("mongodb+srv://nishaswimmer_db_user:CCwUqouggvCh1vTv@cluster0.7pt7ipf.mongodb.net/")
    .then(() => {
       app.listen(4001, () => {
          console.log("server start!")
