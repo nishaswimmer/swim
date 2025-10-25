@@ -5,11 +5,13 @@ import imgee from "../assets/class.jpg"
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 function OurClass() {
+      const BACKEND_API = "https://swim-6.onrender.com"
+
     const [allclasses, setAllClasses] = useState([])
     const [show, setShow] = useState("")
     async function getClasses() {
         try {
-            let res = await fetch("http://localhost:4001/api/getClasses");
+            let res = await fetch(`${BACKEND_API}/api/getClasses`);
             let data = await res.json();
             setAllClasses(data.allClasses);
         } catch (error) {

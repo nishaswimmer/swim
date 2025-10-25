@@ -1,6 +1,8 @@
 import React from 'react'
 import { useState } from 'react';
 function ContactForm() {
+      const BACKEND_API = "https://swim-6.onrender.com"
+
     let [name, setName] = useState("")
     let [lastname, setLastname] = useState("")
     let [email, setEmail] = useState("")
@@ -13,7 +15,7 @@ function ContactForm() {
 
         
         let data = { name, lastname, email, message, subject, phone: Number(phone) }
-        fetch("http://localhost:4001/api/contact", {
+        fetch(`${BACKEND_API}/api/contact`, {
             body: JSON.stringify(data),
             method: "post",
             headers: {
