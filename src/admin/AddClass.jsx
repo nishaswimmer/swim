@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 function AddClass() {
       const BACKEND_API = "https://swim-6.onrender.com"
      const [allCategory, setAllCategory] = useState([]);
-    const [img, setImg] = useState("");
+    const [img, setImg] = useState(null);
     const [classtype, setclassType] = useState("")
     const [agegroup, setageGroup] = useState("")
     const [time, setTime] = useState("")
@@ -47,7 +47,7 @@ function AddClass() {
     function RegisterNow(e) {
         e.preventDefault()
         const data = { classtype, agegroup, time, description, totalclass, category, img }
-        fetch(`${BACKEND_API}api/addclass`, {
+        fetch(`${BACKEND_API}/api/addclass`, {
             body: JSON.stringify(data),
             method: "post",
             headers: {

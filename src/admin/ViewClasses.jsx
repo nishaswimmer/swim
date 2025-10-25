@@ -10,10 +10,11 @@ function ViewClasses() {
         try {
             let res = await fetch(`${BACKEND_API}/api/getClasses`);
             let data = await res.json();
+            console.log(data)
             setAllClasses(data.allClasses);
         } catch (error) {
-            console.log(error);
 
+            console.log(error);
         }
     }
     useEffect(() => {
