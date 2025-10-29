@@ -10,7 +10,11 @@ function Sidebar() {
       <li className='mb-7'><Link to={"viewCategory"}>  ViewCategory</Link></li>
       <li className='mb-7'><Link to={"addclass"}>  AddClass</Link></li>
       <li className='mb-7'><Link to={"viewclasses"}>  ViewClasses</Link></li>
-            <li className='mb-7'><Link to={"viewregister"}>  ViewRegister</Link></li>
+      <li className='mb-7'><Link to={"viewregister"}>  ViewRegister</Link></li>
+      <li className='mb-7'><Link to={"addblog"}>  AddBlog</Link></li>
+      <li className='mb-7'><Link to={"viewblog"}>  ViewBlog</Link></li>
+
+
 
 
 

@@ -5,11 +5,13 @@ let app = express()
 let cors = require("cors")
 app.use(express.json())
 app.use(cors())
+let blogRouter =  require("./routes/blog")
 const categoryRoute = require("./routes/category")
 app.use("/", categoryRoute)
 const registerRoute = require("./routes/register")
 app.use("/", registerRoute)
 
+app.use("/" , blogRouter)
 
 let contactSchema = mongoose.Schema({
    name: {

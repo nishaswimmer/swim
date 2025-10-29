@@ -25,6 +25,9 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import AuthContextProvider from "./context/AuthContextProvider";
 import UpdateClass from "./admin/UpdateClass";
+import AddBlog from "./admin/AddBlog";
+import ViewBlog from "./admin/ViewBlog";
+
 function App() {
   return (
     <>
@@ -60,6 +63,10 @@ function App() {
               <Route path="viewclasses" element={<ViewClasses></ViewClasses>} />
               <Route path="viewregister" element={<ViewRegister></ViewRegister>} />
  <Route path="update/:idx" element={<UpdateClass></UpdateClass>} />
+               <Route path="addblog" element={<AddBlog></AddBlog>} />
+                              <Route path="viewblog" element={<ViewBlog></ViewBlog>} />
+
+
 
 
 
