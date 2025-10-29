@@ -1,23 +1,26 @@
 import React, { useState } from 'react'
-
+import { isPassword } from '../helper/password'
 function Signup() {
-    const BACKEND_API="https://swim-6.onrender.com"
+    const BACKEND_API = "https://swim-6.onrender.com"
     let [name, setName] = useState("")
     let [email, setEmail] = useState("")
     let [password, setPassword] = useState("")
 
     function submit() {
-        let data = { name, email, password }
-        fetch(`${BACKEND_API}/api/sign`, {
-            body: JSON.stringify(data),
-            method: "post",
-            headers: {
-                "content-Type": "application/json"
-            }
-        })
-        .then(res => res.json())
-        .then(data => alert(data.msg))
-        .catch(error => console.log(error))
+        if (isPassword(password)) {
+            let data = { name, email, password }
+            fetch(`${BACKEND_API}/api/sign`, {
+                body: JSON.stringify(data),
+                method: "post",
+                headers: {
+                    "content-Type": "application/json"
+                }
+            })
+                .then(res => res.json())
+                .then(data => alert(data.msg))
+                .catch(error => console.log(error))
+        }
+
     }
 
 
