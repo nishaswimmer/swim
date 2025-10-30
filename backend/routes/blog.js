@@ -25,8 +25,9 @@ router.delete("/api/deleteBlog/:id", async (req, res) => {
 
 });
 router.get("/api/getblog", async (req, res) => {
+   console.log("object")
    try {
-      let allBlog = await Blog.find().populate("category");
+      let allBlog = await Blog.find();
       res.status(200).json({ allBlog});
    } catch (error) {
       console.log(error);
